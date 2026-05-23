@@ -4,11 +4,17 @@ import { Link, NavLink } from "react-router-dom";
 import { Clock, Phone, Menu } from "lucide-react";
 
 export default function Header() {
+  const closeNavbar = () => {
+    const navbar = document.getElementById("royalMenu");
+
+    if (navbar && navbar.classList.contains("show")) {
+      navbar.classList.remove("show");
+    }
+  };
+
   return (
     <>
       <header className="rd-header">
-        
-        {/* TOP BAR */}
         <div className="rd-topbar">
           <Container>
             <div className="rd-topbar-inner">
@@ -25,14 +31,9 @@ export default function Header() {
           </Container>
         </div>
 
-        {/* NAVBAR */}
         <nav className="navbar navbar-expand-lg rd-navbar">
           <Container>
-
-            {/* BRAND */}
-            <Link className="rd-brand" to="/">
-
-              {/* LOGO */}
+            <Link className="rd-brand" to="/" onClick={closeNavbar}>
               <div className="rd-logo">
                 <Image
                   src="/Images/Logo.png"
@@ -41,14 +42,12 @@ export default function Header() {
                 />
               </div>
 
-              {/* TEXT */}
               <span className="rd-brand-text">
                 <strong>Royal Dry Cleaners</strong>
                 <small>Premium Garment Care</small>
               </span>
             </Link>
 
-            {/* TOGGLER */}
             <button
               className="navbar-toggler rd-toggler"
               type="button"
@@ -61,57 +60,51 @@ export default function Header() {
               <Menu size={24} />
             </button>
 
-            {/* MENU */}
             <div className="collapse navbar-collapse" id="royalMenu">
               <ul className="navbar-nav ms-auto rd-menu">
-
                 <li>
-                  <NavLink className="nav-link" to="/">
+                  <NavLink className="nav-link" to="/" onClick={closeNavbar}>
                     Home
                   </NavLink>
                 </li>
 
                 <li>
-                  <NavLink className="nav-link" to="/about">
+                  <NavLink className="nav-link" to="/about" onClick={closeNavbar}>
                     About
                   </NavLink>
                 </li>
 
                 <li>
-                  <NavLink className="nav-link" to="/services">
+                  <NavLink className="nav-link" to="/services" onClick={closeNavbar}>
                     Services
                   </NavLink>
                 </li>
 
                 <li>
-                  <NavLink className="nav-link" to="/gallery">
+                  <NavLink className="nav-link" to="/gallery" onClick={closeNavbar}>
                     Gallery
                   </NavLink>
                 </li>
 
                 <li>
-                  <NavLink className="nav-link" to="/contact">
+                  <NavLink className="nav-link" to="/contact" onClick={closeNavbar}>
                     Contact
                   </NavLink>
                 </li>
-
               </ul>
 
-              {/* BUTTON */}
-              <Link to="/contact" className="rd-header-btn">
+              <Link to="/contact" className="rd-header-btn" onClick={closeNavbar}>
                 Book Collection
               </Link>
             </div>
-
           </Container>
         </nav>
       </header>
 
-      {/* STYLES */}
       <style>{`
         @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap");
 
-        *{
+        * {
           font-family: "Outfit", sans-serif;
         }
 
@@ -135,8 +128,6 @@ export default function Header() {
           text-decoration: none !important;
         }
 
-        /* HEADER */
-
         .rd-header {
           position: sticky;
           top: 0;
@@ -151,8 +142,6 @@ export default function Header() {
           border-bottom: 1px solid rgba(122, 198, 255, 0.18);
           box-shadow: 0 10px 40px rgba(95, 175, 230, 0.12);
         }
-
-        /* TOPBAR */
 
         .rd-topbar {
           padding: 9px 0;
@@ -181,8 +170,6 @@ export default function Header() {
           color: #4c6f86;
         }
 
-        /* NAVBAR */
-
         .rd-navbar {
           padding: 10px 0;
         }
@@ -197,8 +184,6 @@ export default function Header() {
           display: flex;
           flex-direction: column;
         }
-
-        /* BIG LOGO */
 
         .rd-logo {
           width: 120px;
@@ -216,8 +201,6 @@ export default function Header() {
           object-fit: contain;
           transform: scale(1.15);
         }
-
-        /* BRAND TEXT */
 
         .rd-brand strong {
           display: block;
@@ -239,8 +222,6 @@ export default function Header() {
           text-transform: uppercase;
           font-weight: 700;
         }
-
-        /* MENU */
 
         .rd-menu {
           gap: 24px;
@@ -267,8 +248,6 @@ export default function Header() {
           content: none !important;
         }
 
-        /* BUTTON */
-
         .rd-header-btn {
           margin-left: 24px;
           display: inline-flex;
@@ -288,15 +267,9 @@ export default function Header() {
           box-shadow: 0 20px 40px rgba(63, 179, 237, 0.38);
         }
 
-        /* TOGGLER */
-
         .rd-toggler {
           border: 0 !important;
-          background: linear-gradient(
-            135deg,
-            #ffffff,
-            #dff4ff
-          ) !important;
+          background: linear-gradient(135deg, #ffffff, #dff4ff) !important;
           color: #2e7ba8 !important;
           box-shadow: 0 10px 25px rgba(0,0,0,.08) !important;
         }
@@ -305,10 +278,7 @@ export default function Header() {
           box-shadow: none !important;
         }
 
-        /* TABLET */
-
         @media(max-width: 991px) {
-
           .rd-navbar {
             padding: 12px 0;
           }
@@ -339,10 +309,7 @@ export default function Header() {
           }
         }
 
-        /* MOBILE */
-
         @media(max-width: 575px) {
-
           .rd-topbar {
             display: none;
           }

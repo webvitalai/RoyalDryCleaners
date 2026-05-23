@@ -1,12 +1,12 @@
 import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
+
 import {
   Phone,
   Mail,
   MapPin,
   Clock,
-  Sparkles,
   ArrowRight,
 } from "lucide-react";
 
@@ -25,12 +25,22 @@ export default function Footer() {
 
         <Container className="position-relative">
           <Row className="g-5">
+
+            {/* BRAND */}
             <Col lg={4} className="rd-reveal">
+
               <div className="rd-footer-brand">
+
+                {/* LOGO */}
                 <div className="rd-footer-logo">
-                  <Sparkles size={28} />
+                  <Image
+                    src="/Images/Logo.png"
+                    alt="Royal Dry Cleaners Logo"
+                    fluid
+                  />
                 </div>
 
+                {/* TEXT */}
                 <div>
                   <h3>Royal Dry Cleaners</h3>
                   <span>Premium Garment Care</span>
@@ -43,7 +53,9 @@ export default function Footer() {
                 freshness, quality and elegance.
               </p>
 
+              {/* SOCIALS */}
               <div className="rd-footer-socials">
+
                 <a href="/">
                   <FaFacebookF />
                 </a>
@@ -59,13 +71,17 @@ export default function Footer() {
                 <a href="/">
                   <FaTiktok />
                 </a>
+
               </div>
             </Col>
 
+            {/* QUICK LINKS */}
             <Col lg={2} md={4} className="rd-reveal">
+
               <h5>Quick Links</h5>
 
               <div className="rd-footer-links">
+
                 <Link to="/">
                   <ArrowRight size={15} /> Home
                 </Link>
@@ -85,10 +101,13 @@ export default function Footer() {
                 <Link to="/contact">
                   <ArrowRight size={15} /> Contact
                 </Link>
+
               </div>
             </Col>
 
+            {/* SERVICES */}
             <Col lg={3} md={4} className="rd-reveal">
+
               <h5>Our Services</h5>
 
               <div className="rd-footer-services">
@@ -100,10 +119,13 @@ export default function Footer() {
               </div>
             </Col>
 
+            {/* CONTACT */}
             <Col lg={3} md={4} className="rd-reveal">
+
               <h5>Contact Info</h5>
 
               <div className="rd-contact-list">
+
                 <p>
                   <Phone size={17} />
                   +44 2078 334 984
@@ -116,27 +138,32 @@ export default function Footer() {
 
                 <p>
                   <MapPin size={17} />
-                  Gensurco House, 46 Rosebery Ave, London EC1R 4RP,Uk
+                  Gensurco House, 46 Rosebery Ave, London EC1R 4RP, UK
                 </p>
 
                 <p>
                   <Clock size={17} />
                   Mon - Sat: 8:00 AM - 7:00 PM
                 </p>
+
               </div>
             </Col>
+
           </Row>
 
+          {/* BOTTOM */}
           <div className="rd-footer-bottom">
+
             <p>
-              © {new Date().getFullYear()} Royal Dry Cleaners. All Rights
-              Reserved.
+              © {new Date().getFullYear()} Royal Dry Cleaners.
+              All Rights Reserved.
             </p>
 
             <div className="rd-footer-bottom-links">
               <a href="/">Privacy Policy</a>
               <a href="/">Terms & Conditions</a>
             </div>
+
           </div>
         </Container>
       </footer>
@@ -153,9 +180,7 @@ export default function Footer() {
 
         .rd-footer {
           position: relative;
-
           overflow: hidden;
-
           padding: 90px 0 30px;
 
           background:
@@ -187,36 +212,36 @@ export default function Footer() {
             );
         }
 
+        /* BRAND */
+
         .rd-footer-brand {
           display: flex;
           align-items: center;
-          gap: 16px;
-
+          gap: 18px;
           margin-bottom: 22px;
         }
 
-        .rd-footer-logo {
-          width: 65px;
-          height: 65px;
+        /* LOGO */
 
-          border-radius: 22px;
+        .rd-footer-logo {
+          width: 95px;
+          height: 95px;
 
           display: flex;
           align-items: center;
           justify-content: center;
 
-          background:
-            linear-gradient(
-              135deg,
-              rgba(255,255,255,.95),
-              rgba(215,245,255,.95)
-            );
-
-          color: #1690c8;
-
-          box-shadow:
-            0 18px 40px rgba(0,0,0,.18);
+          flex-shrink: 0;
         }
+
+        .rd-footer-logo img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+          transform: scale(1.1);
+        }
+
+        /* TEXT */
 
         .rd-footer-brand h3 {
           margin: 0;
@@ -225,7 +250,6 @@ export default function Footer() {
           font-style: italic;
 
           font-size: 34px;
-
           font-weight: 900;
 
           color: #ffffff;
@@ -235,11 +259,9 @@ export default function Footer() {
           color: #d7f5ff;
 
           letter-spacing: 2px;
-
           font-size: 11px;
 
           text-transform: uppercase;
-
           font-weight: 700;
         }
 
@@ -247,11 +269,12 @@ export default function Footer() {
           color: #e8f9ff;
 
           line-height: 1.9;
-
           font-size: 16px;
 
           max-width: 420px;
         }
+
+        /* SOCIALS */
 
         .rd-footer-socials {
           display: flex;
@@ -271,8 +294,7 @@ export default function Footer() {
           align-items: center;
           justify-content: center;
 
-          background:
-            rgba(255,255,255,.16);
+          background: rgba(255,255,255,.16);
 
           color: #fff;
 
@@ -280,8 +302,7 @@ export default function Footer() {
 
           backdrop-filter: blur(10px);
 
-          border:
-            1px solid rgba(255,255,255,.18);
+          border: 1px solid rgba(255,255,255,.18);
 
           transition: .35s ease;
         }
@@ -289,14 +310,14 @@ export default function Footer() {
         .rd-footer-socials a:hover {
           transform: translateY(-6px) scale(1.05);
 
-          background:
-            rgba(255,255,255,.26);
+          background: rgba(255,255,255,.26);
 
           color: #ffffff;
 
-          box-shadow:
-            0 15px 35px rgba(0,0,0,.18);
+          box-shadow: 0 15px 35px rgba(0,0,0,.18);
         }
+
+        /* TITLES */
 
         .rd-footer h5 {
           position: relative;
@@ -306,7 +327,6 @@ export default function Footer() {
           margin-bottom: 28px;
 
           font-size: 22px;
-
           font-weight: 900;
 
           color: #ffffff;
@@ -332,6 +352,8 @@ export default function Footer() {
               #b8ecff
             );
         }
+
+        /* LINKS */
 
         .rd-footer-links,
         .rd-footer-services,
@@ -378,6 +400,8 @@ export default function Footer() {
           min-width: 18px;
         }
 
+        /* BOTTOM */
+
         .rd-footer-bottom {
           margin-top: 65px;
           padding-top: 26px;
@@ -388,6 +412,7 @@ export default function Footer() {
           display: flex;
           align-items: center;
           justify-content: space-between;
+
           gap: 20px;
 
           flex-wrap: wrap;
@@ -395,7 +420,6 @@ export default function Footer() {
 
         .rd-footer-bottom p {
           margin: 0;
-
           color: #dff7ff;
         }
 
@@ -417,15 +441,25 @@ export default function Footer() {
           color: #ffffff;
         }
 
+        /* TABLET */
+
         @media(max-width:991px) {
+
           .rd-footer {
             padding: 75px 0 28px;
+          }
+
+          .rd-footer-logo {
+            width: 80px;
+            height: 80px;
           }
 
           .rd-footer-brand h3 {
             font-size: 28px;
           }
         }
+
+        /* MOBILE */
 
         @media(max-width:575px) {
 
@@ -434,14 +468,13 @@ export default function Footer() {
           }
 
           .rd-footer-brand {
-            align-items: flex-start;
+            align-items: center;
+            gap: 14px;
           }
 
           .rd-footer-logo {
-            width: 56px;
-            height: 56px;
-
-            border-radius: 18px;
+            width: 68px;
+            height: 68px;
           }
 
           .rd-footer-brand h3 {
